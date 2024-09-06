@@ -11,4 +11,12 @@ sky:
     access-key-id: LTAI5t5aJP6vPyVcNHibzZDq
     access-key-secret: fkJxksd6BtxINSvf5coCu01wC0kbHu
     bucket-name: web-tilas-hpl
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 10
+  wechat:
+    appid: wx66e8ec9d93cdd7dc
+    secret: a3f97872240c43dcef4cdfd3c7a3bb0a
 
