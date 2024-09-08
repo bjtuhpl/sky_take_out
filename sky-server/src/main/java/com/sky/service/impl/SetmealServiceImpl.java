@@ -159,6 +159,7 @@ public class SetmealServiceImpl implements SetmealService {
         setmealDishes.forEach(setmealDish -> {
             setmealDish.setSetmealId(setmealId);
         });
+
         //3、重新插入套餐和菜品的关联关系，操作setmeal_dish表，执行insert
         setmealDishMapper.insertBatch(setmealDishes);
     }

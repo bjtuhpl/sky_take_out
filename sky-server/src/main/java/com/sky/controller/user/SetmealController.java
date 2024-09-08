@@ -8,6 +8,7 @@ import com.sky.vo.DishItemVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,12 +22,12 @@ public class SetmealController {
 
     /**
      * 条件查询
-     *
      * @param categoryId
      * @return
      */
     @GetMapping("/list")
     @ApiOperation("根据分类id查询套餐")
+    @Cacheable(cacheNames = "setmealcache",key = "#categoryId") //key：setmealCache::100
     public Result<List<Setmeal>> list(Long categoryId) {
         Setmeal setmeal = new Setmeal();
         setmeal.setCategoryId(categoryId);
@@ -38,7 +39,6 @@ public class SetmealController {
 
     /**
      * 根据套餐id查询包含的菜品列表
-     *
      * @param id
      * @return
      */
